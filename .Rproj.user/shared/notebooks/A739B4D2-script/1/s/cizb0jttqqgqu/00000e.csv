@@ -1,0 +1,6 @@
+"0","pp = preProcess(x[, 1:52])"
+"0","px = predict(pp, x[, 1:52])"
+"0","py = predict(pp, y[, 1:52])"
+"0","px$classe = x$classe"
+"0","py$classe = y$problem_id"
+"0",""

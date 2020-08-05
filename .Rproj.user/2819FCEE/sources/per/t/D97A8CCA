@@ -1,0 +1,32 @@
+{
+    "id": "D97A8CCA",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1596629529560.0,
+    "source_on_save": false,
+    "relative_order": 3,
+    "properties": {
+        "expression": "tst",
+        "caption": "tst",
+        "totalObservations": "20",
+        "displayedObservations": "20",
+        "variables": "160",
+        "cacheKey": "2AB9FB53",
+        "object": "tst",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=tst&cache_key=2AB9FB53&max_cols=50",
+        "preview": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 7596482321514324594,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1596629529560,
+    "read_only": false,
+    "read_only_alternatives": []
+}

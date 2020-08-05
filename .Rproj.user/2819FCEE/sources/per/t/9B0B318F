@@ -1,0 +1,32 @@
+{
+    "id": "9B0B318F",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1596638104542.0,
+    "source_on_save": false,
+    "relative_order": 6,
+    "properties": {
+        "expression": "py",
+        "caption": "py",
+        "totalObservations": 19622,
+        "displayedObservations": 19622,
+        "variables": 53,
+        "cacheKey": "62D29C40",
+        "object": "py",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=py&cache_key=62D29C40&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1804669568216,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1596638104542,
+    "read_only": false,
+    "read_only_alternatives": []
+}

@@ -1,0 +1,106 @@
+---
+title: "ML course project"
+author: "Cedric Bonjour"
+date: "8/4/2020"
+output: html_document
+---
+
+
+The goal of this project is to use data from accelerometers on the belt, forearm, arm, and dumbell of 6 participants. They were asked to perform barbell lifts correctly and incorrectly in 5 different ways categorized from A to E. 
+
+
+
+### Libraries 
+
+```{r message=FALSE}
+library(data.table)
+library(caret)
+```
+### Loading pml data
+```{r}
+trn = fread("pml-training.csv")
+tst = fread("pml-testing.csv")
+```
+
+### Data Cleaning & Exploratory Analysis
+
+```{r}
+info = c("rows" = nrow(trn), "col" = ncol(trn), "NA" = sum(is.na(trn)))
+info = rbind(info, c(nrow(tst), ncol(tst),sum(is.na(tst)) ))
+rownames(info) = c("train", "test")
+info
+
+```
+
+
+Removing useless columns (first seven are metadata and many are full of NA thus unreliable)
+And factoring the `classe` column
+
+```{r}
+
+b = (colSums(is.na(trn))<19000)
+
+x =   trn[, ..b ]
+x = x[, 8:ncol(x)]
+
+y =   tst[, ..b ]
+y = y[, 8:ncol(y)]
+
+x$classe <- factor(x$classe)
+
+dim(x)
+
+```
+
+
+### Preprocessing : center & scale numeric vars
+
+```{r}
+pp = preProcess(x[, 1:52])
+px = predict(pp, x[, 1:52])
+py = predict(pp, y[, 1:52])
+px$classe = x$classe
+py$classe = y$problem_id
+
+```
+
+
+### Cross validation set creation
+
+```{r}
+set.seed(7895)
+b = createDataPartition(px$classe, p = 0.6, list=FALSE )
+xtrn = px[b,]
+xtst = px[-b,]
+
+```
+
+
+
+### Random forest 
+
+```{r}
+
+model_rf = train(classe ~ . , data=xtrn,  method="rf", trControl=trainControl(method="cv", number=3, verboseIter=FALSE), allowParallel=TRUE)
+
+model_rf
+```
+
+## Cross validation of the model
+
+```{r}
+
+confusionMatrix(predict(model_rf, xtst), xtst$classe)
+```
+**Accuracy : 0.9913** is considered satisfying
+
+### Prediction on test data
+
+```{r}
+predict(model_rf, py)
+```
+
+Quiz score : 100%
+
+
+

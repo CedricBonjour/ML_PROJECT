@@ -1,0 +1,2 @@
+"0","trn = fread(""pml-training.csv"")"
+"0","tst = fread(""pml-testing.csv"")"
